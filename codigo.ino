@@ -48,15 +48,13 @@ void setup() {
 
   // Verifica estado do botão
   estadoDoBotao = digitalRead(pinoBotao);
-  if (!cicloAberto) {
-    if (estadoDoBotao == HIGH) {
-      Serial.println("Botão pressionado!");
-      delay(1000);
 
-    } else {
-      Serial.println("Botão não pressionado!");
-    }
+  if (estadoDoBotao == HIGH) {
+    Serial.println("Botão pressionado!");
+  } else {
+    Serial.println("Botão não pressionado!");
   }
+
 
   if(WiFi.status() == WL_CONNECTED){ // Se o ESP32 estiver conectado à Internet
     HTTPClient http;

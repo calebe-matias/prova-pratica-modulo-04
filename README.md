@@ -5,7 +5,7 @@
 # Print do Código em Funcionamento:
 ![Print do Código do WOKWI em Funcionamento](image.png)
 
-- Acima está um print mostrando o código em funcionamento no WOKWI. É possível observar que o monitor Serial está repleto de pontos `.`, que estam printados pois o ESP32 está parado no seguinte `while`, que verifica se a conexão com a rede WiFi foi bem sucedida:
+- Acima está um print mostrando o código em funcionamento no WOKWI. É possível observar que o monitor Serial está repleto de pontos `.`, pois o ESP32 está parado no seguinte `while`, que verifica se a conexão com a rede WiFi foi bem sucedida:
 ```c++
   while (WiFi.status() != WL_CONNECT_FAILED) {
     delay(100);
