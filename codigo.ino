@@ -9,7 +9,7 @@ const int pinoBotao = 18;  // numeração do pino do botão
 int estadoDoBotao = 0;  // variável para leitura do estado do botão
 
 const int pinoLDR = 4;  // numeração do pino do sensor LDR
-int threshold=600;
+int limite=600;
 
 int ldrStatus = 0;
 
@@ -17,8 +17,8 @@ bool cicloAberto = true;
 
 void modoEscuro();
 void modoClaro();
-void cicloAberto();
-void cicloFechado();
+void funcaoCicloAberto();
+void funcaoCicloFechado();
 
 
 void setup() {
@@ -86,23 +86,23 @@ void setup() {
 }
 
 void loop() {
-  ldrstatus=analogRead(pinoLDR);
+  ldrStatus=analogRead(pinoLDR);
 
   if(cicloAberto){
-    cicloAberto();
+    funcaoCicloAberto();
   } else {
-    cicloFechado();
+    funcaoCicloFechado();
   }
 
-  if(ldrstatus<=threshold){
+  if(ldrStatus<=limite){
     Serial.print("Está escuro, ligar o LED: ");
-    Serial.println(ldrstatus);
+    Serial.println(ldrStatus);
     modoEscuro();
 
   }else{
     Serial.print("Está claro, desligar o LED: ");
     cicloAberto = true;
-    Serial.println(ldrstatus);
+    Serial.println(ldrStatus);
     modoClaro();
 
     estadoDoBotao = digitalRead(pinoBotao);
@@ -110,7 +110,7 @@ void loop() {
       if (estadoDoBotao == HIGH) {
         Serial.println("Botão pressionado!");
         delay(1000);
-        cicloAberto();
+        funcaoCicloAberto();
       } else {
         Serial.println("Botão não pressionado!");
       }
@@ -136,13 +136,13 @@ void modoClaro(){
   digitalWrite(led_vermelho, LOW);
 }
 
-void cicloAberto(){
+void funcaoCicloAberto(){
   digitalWrite(led_verde, HIGH);
   digitalWrite(led_amarelo, LOW);
   digitalWrite(led_vermelho, LOW);
 }
 
-void cicloFechado(){
+void funcaoCicloFechado(){
   digitalWrite(led_verde, HIGH);
   digitalWrite(led_amarelo, LOW);
   digitalWrite(led_vermelho, LOW);
