@@ -12,4 +12,4 @@
     Serial.print(".");
   }
 ```
-- Não foi possível realizar uma conexão bem sucedida com o Wi-Fi do Inteli, nem um Hotspot do celular, porém o código está funcionando corretamente, com o semáforo tendo os ciclos executados e a cada ciclo, o LDR sendo aferido e o semáforo entrando no modo claro ou escuro conforme a claridade do ambiente.
+- Não foi possível realizar uma conexão bem sucedida com o Wi-Fi do Inteli, nem um Hotspot do celular, porém o código está funcionando corretamente, com o semáforo tendo os ciclos executados a cada ciclo, o LDR sendo aferido e o semáforo entrando no modo claro ou escuro conforme a claridade do ambiente.
